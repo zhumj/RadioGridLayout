@@ -1,0 +1,2 @@
+rootProject.name='MultiLineRadioGroupDemo'
+include ':app'
