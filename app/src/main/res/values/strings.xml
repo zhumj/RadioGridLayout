@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MultiLineRadioGroupDemo</string>
+    <string name="app_name">RadioGridLayoutDemo</string>
     <string name="text_01">01</string>
     <string name="text_02">02</string>
     <string name="text_03">03</string>

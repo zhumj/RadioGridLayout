@@ -1,9 +1,9 @@
-package com.example.multilineradiogroupdemo
+package com.example.radiogridlayoutdemo
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import kotlinx.android.synthetic.main.activity_main.*
+import com.zhumj.radiogridlayout.RadioGridLayout
 
 class MainActivity : AppCompatActivity() {
 
@@ -11,8 +11,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        rgTest.setOnCheckedChangeListener(object: MultiLineRadioGroup.OnCheckedChangeListener{
-            override fun onCheckedChanged(group: MultiLineRadioGroup?, checkedId: Int) {
+        val rgTest: RadioGridLayout = findViewById(R.id.rgTest)
+        rgTest.setOnCheckedChangeListener(object: RadioGridLayout.OnCheckedChangeListener {
+            override fun onCheckedChanged(group: RadioGridLayout?, checkedId: Int) {
                 val message = when (checkedId) {
                     R.id.rbTest1 -> "01"
                     R.id.rbTest2 -> "02"

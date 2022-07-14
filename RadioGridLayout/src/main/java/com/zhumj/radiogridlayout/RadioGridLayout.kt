@@ -1,8 +1,7 @@
-package com.example.multilineradiogroupdemo
+package com.zhumj.radiogridlayout
 
 
 import android.content.Context
-import android.os.Build
 import android.util.AttributeSet
 import android.view.View
 import android.view.ViewGroup
@@ -10,9 +9,8 @@ import android.widget.CompoundButton
 import android.widget.GridLayout
 import android.widget.RadioButton
 import androidx.annotation.IdRes
-import androidx.annotation.RequiresApi
 
-class MultiLineRadioGroup: GridLayout {
+class RadioGridLayout: GridLayout {
 
     private var mProtectFromCheckedChange = false
     var mCheckedId = -1
@@ -59,15 +57,8 @@ class MultiLineRadioGroup: GridLayout {
     }
 
     private fun setCheckedId(@IdRes id: Int) {
-        val changed = id != mCheckedId
         mCheckedId = id
         mOnCheckedChangeListener?.onCheckedChanged(this, mCheckedId)
-//        if (changed) {
-//            val afm: AutofillManager = mContext.getSystemService(
-//                AutofillManager::class.java
-//            )
-//            afm?.notifyValueChanged(this)
-//        }
     }
 
     private fun setCheckedStateForView(viewId: Int, checked: Boolean) {
@@ -100,18 +91,17 @@ class MultiLineRadioGroup: GridLayout {
     }
 
     interface OnCheckedChangeListener {
-        fun onCheckedChanged(group: MultiLineRadioGroup?, @IdRes checkedId: Int)
+        fun onCheckedChanged(group: RadioGridLayout?, @IdRes checkedId: Int)
     }
 
     private inner class PassThroughHierarchyChangeListener :
         OnHierarchyChangeListener {
         private val mOnHierarchyChangeListener: OnHierarchyChangeListener? = null
-        @RequiresApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
         override fun onChildViewAdded(
             parent: View,
             child: View
         ) {
-            if (parent == this@MultiLineRadioGroup && child is RadioButton) {
+            if (parent == this@RadioGridLayout && child is RadioButton) {
                 var id = child.getId()
                 // generates an id if it's missing
                 if (id == View.NO_ID) {
@@ -129,7 +119,7 @@ class MultiLineRadioGroup: GridLayout {
          * {@inheritDoc}
          */
         override fun onChildViewRemoved(parent: View, child: View) {
-            if (parent == this@MultiLineRadioGroup && child is RadioButton) {
+            if (parent == this@RadioGridLayout && child is RadioButton) {
                 child.setOnCheckedChangeListener(null)
             }
             mOnHierarchyChangeListener?.onChildViewRemoved(parent, child)
