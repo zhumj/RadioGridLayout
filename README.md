@@ -1,5 +1,5 @@
 # RadioGridLayout
-[![](https://jitpack.io/v/zhumj/RadioGridLayoutDemo.svg)](https://jitpack.io/#zhumj/RadioGridLayoutDemo)
+[![](https://jitpack.io/v/zhumj/RadioGridLayout.svg)](https://jitpack.io/#zhumj/RadioGridLayout)
 
 继承于GridLayout的多行多列RadioGroup，用法是 GridLayout 和 RadioGroup 结合
 
@@ -17,6 +17,6 @@
 ## Step 2. Add the dependency
     ```
     dependencies {
-        implementation 'com.github.zhumj:RadioGridLayoutDemo:Tag'
+        implementation 'com.github.zhumj:RadioGridLayout:Tag'
     }
     ```
